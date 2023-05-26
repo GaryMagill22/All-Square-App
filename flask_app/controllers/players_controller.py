@@ -62,7 +62,7 @@ def login():
         flash("Invalid Email/Password")
         return redirect('/')
     # if the passwords matched, we set the player_id into session
-    print('=====================>PLAYER_IN_DB: ', player_in_db)
+    # print('=====================>PLAYER_IN_DB: ', player_in_db)
     session['players_id'] = player_in_db.id
     session['username'] = player_in_db.username
     # never render on a post!!!

@@ -18,6 +18,9 @@ class Game_Info:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
+
+# GETS ALL GAMES IN THE DATABASE
+
     @classmethod
     def get_all_game_info(cls):
         query = """
