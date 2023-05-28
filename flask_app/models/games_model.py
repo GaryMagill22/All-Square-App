@@ -39,8 +39,8 @@ class Game:
     @classmethod
     def create_game(cls, data):  # data = request.form(dictionary)
         query = """
-            INSERT INTO games (course_id, game_info_id, name)
-            VALUES (%(course_id)s, %(game_info_id)s, %(name)s);
+            INSERT INTO games (course_id, game_info_id)
+            VALUES (%(course_id)s, %(game_info_id)s;
             """
         results = connectToMySQL(cls.DB).query_db(query, data)
         return results
@@ -53,6 +53,16 @@ class Game:
         query = """
         SELECT * FROM games_info
         WHERE id = %(games_id)s;
+        """
+        result = connectToMySQL(cls.DB).query_db(query, data)
+        return cls(result[0])
+
+# =========================================
+
+    @classmethod
+    def get_hole_num(cls, data):
+        query = """
+        SELECT hole_num FROM players_rounds
         """
         result = connectToMySQL(cls.DB).query_db(query, data)
         return cls(result[0])
