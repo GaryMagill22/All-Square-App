@@ -27,7 +27,6 @@ class Course:
 
         for row in result:
             all_courses.append(Course(row))
-        print("=================================> COURSES FROM DB: ", all_courses)
         return all_courses
 
     @classmethod

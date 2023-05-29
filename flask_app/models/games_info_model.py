@@ -21,6 +21,7 @@ class Game_Info:
 
 # GETS ALL GAMES IN THE DATABASE
 
+
     @classmethod
     def get_all_game_info(cls):
         query = """

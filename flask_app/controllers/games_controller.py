@@ -79,7 +79,7 @@ def setup_round():
 # ===============================================
 
 
-@app.route('/play_game')
+@app.route('/play_game', methods=['POST'])
 def play_game():
     # Retrieve the current hole number from the query parameters or default to 1
     hole_num = int(request.args.get('hole_num', 1))
@@ -90,7 +90,7 @@ def play_game():
     # Retrieve the players' data from the database (e.g., names and scores)
     players = get_players_from_database()
 
-    return render_template('hole.html', hole_num=hole_num)
+    return render_template('hole.html', hole_num=hole_num, players=players)
 
 # ===============================================
 

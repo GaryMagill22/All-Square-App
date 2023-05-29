@@ -35,7 +35,6 @@ class Game:
 
 # =========================================
 
-
     @classmethod
     def create_game(cls, data):  # data = request.form(dictionary)
         query = """
@@ -47,6 +46,7 @@ class Game:
 
 
 # =========================================
+
 
     @classmethod
     def get_game_by_id(cls, data):
