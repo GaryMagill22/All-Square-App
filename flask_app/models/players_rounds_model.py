@@ -23,7 +23,7 @@ class Players_Round:
         WHERE id = %(player_id)s, %(game_id)s;
         """
 
-        results = connectToMySQL(cls.DB).query_db(query)
+        results = connectToMySQL(cls.DB).query_db(query, data)
         return results
 
     @classmethod
@@ -32,5 +32,15 @@ class Players_Round:
         INSERT INTO players_rounds (player_id, game_id, hole_num, score, outcome)
         VALUES ( %(player_id)s, %(game_id)s, %(hole_num)s, %(score)s, %(outcome)s )
         """
+        results = connectToMySQL(cls.DB).query_db(query, data)
+        return results
 
-        return connectToMySQL(cls.DB).query_db(query, data)
+    # @classmethod
+    # def get_players_from_database(cls, hole_num):
+    #     query = """
+    #     SELECT * FROM players_rounds
+    #     WHERE id = %(player_id)s AND game_id = %(game_id)s;
+    #     """
+
+    #     result = connectToMySQL(cls.DB).query_db(query, hole_num)
+    #     return result

@@ -140,23 +140,36 @@ def test_score(hole_num):
         # Player 1 Data
         {
             'player_id': request.form['player1_id'],
-            'game_id': 2,
-            'hole_num': hole_num,
+            'game_id': ['game_id'],
+            'hole_num': ['hole_num'],
             'score': request.form['player1Score'],
             'outcome': 'won'
         },
         # Player 2 Data
-        #         {
-        #    'player_id': request.form['player2_id'],
-        #    'game_id': 1,
-        #    'hole_num' : 1,
-        #    'score' : request.form['player2Score'],
-        #    'outcome' : 'loss'
-        # },
+        {
+            'player_id': request.form['player2_id'],
+            'game_id': ['game_id'],
+            'hole_num': ['hole_num'],
+            'score': request.form['player2Score'],
+            'outcome': 'loss'
+        },
         # Player 3
-        # {'player_id': request.form['player3_id']},
-        # Player 4
-        # {'player_id': request.form['player4_id']}
+        {
+            'player_id': request.form['player3_id'],
+            'game_id': ['game_id'],
+            'hole_num': ['hole_num'],
+            'score': request.form['player2Score'],
+            'outcome': 'loss'
+            # Player 4
+        },
+        {
+
+            'player_id': request.form['player4_id'],
+            'game_id': ['game_id'],
+            'hole_num': ['hole_num'],
+            'score': request.form['player2Score'],
+            'outcome': 'loss'
+        },
     ]
 
     for player in all_playerscore_data:

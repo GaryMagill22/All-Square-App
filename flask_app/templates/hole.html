@@ -87,9 +87,9 @@
                                     <tbody>
 
                                         <tr>
-                                            <td>{{ session['username']}}</td>
+                                            <td>{{ request.form['player1'] }}</td>
                                             <td class="text-center player-score">
-                                                <input type="number" name="player1_id" value="1" hidden>
+                                                <input type="number" name="player1_id" value="{{ player1 }}" hidden>
                                                 <input class="score_input" name="player1Score" id="player1Score"
                                                     type="number" value="0" readonly>
                                             </td>
@@ -110,61 +110,73 @@
 
                                         </tr>
                                         <tr>
-                                            <td>Player 2</td>
-                                            <td class="text-center player-score" id="player2Score">
+                                            <td>{{ request.form['player2'] }}</td>
+                                            <td class="text-center player-score">
+                                                <input type="number" name="player2_id" value="1" hidden>
                                                 <input class="score_input" name="player2Score" id="player2Score"
                                                     type="number" value="0" readonly>
                                             </td>
-                                            <td class="flexed"><button class="btn btn-success mb-2"
-                                                    onclick="updateScore('player1', -2)">Eagle</button><br>
-                                                <button class="btn btn-primary mb-2"
-                                                    onclick="updateScore('player1', -1)">Birdie</button><br>
-                                                <button class="btn btn-info mb-2"
-                                                    onclick="updateScore('player1', 0)">Par</button><br>
-                                                <button class="btn btn-warning mb-2"
-                                                    onclick="updateScore('player1', 1)">Bogie</button><br>
-                                                <button class="btn btn-dark mb-2"
-                                                    onclick="updateScore('player1', 2)">Double-Bogey</button>
-                                                <button class="btn btn-danger mb-2"
-                                                    onclick="updateScore('player1', 25)">X</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Player 3</td>
-                                            <td class="text-center player-score" id="player3Score">0</td>
-                                            <td class="flexed"><button class="btn btn-success mb-2"
-                                                    onclick="updateScore('player1', -2)">Eagle</button><br>
-                                                <button class="btn btn-primary mb-2"
-                                                    onclick="updateScore('player1', -1)">Birdie</button><br>
-                                                <button class="btn btn-info mb-2"
-                                                    onclick="updateScore('player1', 0)">Par</button><br>
-                                                <button class="btn btn-warning mb-2"
-                                                    onclick="updateScore('player1', 1)">Bogie</button><br>
-                                                <button class="btn btn-dark mb-2"
-                                                    onclick="updateScore('player1', 2)">Double-Bogey</button>
-                                                <button class="btn btn-danger mb-2"
-                                                    onclick="updateScore('player1', 25)">X</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Player 4</td>
-                                            <td class="text-center player-score" id="player4Score">0</td>
                                             <td class="flexed">
-                                                <button class="btn btn-success mb-2" class="score-button"
-                                                    data-player-id="{{ player_id }}" data-hole-num="{{ hole_num }}"
-                                                    data-score="eagle"
-                                                    onclick="updateScore('player1', -1)">Eagle</button><br>
+                                                <button class="btn btn-success mb-2"
+                                                    onclick="updateScore(event, 'player2Score', -2)">Eagle</button><br>
                                                 <button class="btn btn-primary mb-2"
-                                                    onclick="updateScore('player1', -2)">Birdie</button><br>
+                                                    onclick="updateScore(event, 'player2Score', -1)">Birdie</button><br>
                                                 <button class="btn btn-info mb-2"
-                                                    onclick="updateScore('player1', 0)">Par</button><br>
+                                                    onclick="updateScore(event, 'player2Score', 0)">Par</button><br>
                                                 <button class="btn btn-warning mb-2"
-                                                    onclick="updateScore('player1', 1)">Bogie</button><br>
+                                                    onclick="updateScore(event, 'player2Score', 1)">Bogie</button><br>
                                                 <button class="btn btn-dark mb-2"
-                                                    onclick="updateScore('player1', 2)">Double-Bogey</button>
+                                                    onclick="updateScore(event, 'player2Score', 2)">Double-Bogey</button>
                                                 <button class="btn btn-danger mb-2"
-                                                    onclick="updateScore('player1', 25)">X</button>
+                                                    onclick="updateScore(event, 'player2Score', 25)">X</button>
                                             </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>{{ request.form['player3'] }}</td>
+                                            <td class="text-center player-score">
+                                                <input type="number" name="player3_id" value="1" hidden>
+                                                <input class="score_input" name="player3Score" id="player3Score"
+                                                    type="number" value="0" readonly>
+                                            </td>
+                                            <td class="flexed">
+                                                <button class="btn btn-success mb-2"
+                                                    onclick="updateScore(event, 'player3Score', -2)">Eagle</button><br>
+                                                <button class="btn btn-primary mb-2"
+                                                    onclick="updateScore(event, 'player3Score', -1)">Birdie</button><br>
+                                                <button class="btn btn-info mb-2"
+                                                    onclick="updateScore(event, 'player3Score', 0)">Par</button><br>
+                                                <button class="btn btn-warning mb-2"
+                                                    onclick="updateScore(event, 'player3Score', 1)">Bogie</button><br>
+                                                <button class="btn btn-dark mb-2"
+                                                    onclick="updateScore(event, 'player3Score', 2)">Double-Bogey</button>
+                                                <button class="btn btn-danger mb-2"
+                                                    onclick="updateScore(event, 'player3Score', 25)">X</button>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>{{ request.form['player4'] }}</td>
+                                            <td class="text-center player-score">
+                                                <input type="number" name="player4_id" value="1" hidden>
+                                                <input class="score_input" name="player4Score" id="player4Score"
+                                                    type="number" value="0" readonly>
+                                            </td>
+                                            <td class="flexed">
+                                                <button class="btn btn-success mb-2"
+                                                    onclick="updateScore(event, 'player4Score', -2)">Eagle</button><br>
+                                                <button class="btn btn-primary mb-2"
+                                                    onclick="updateScore(event, 'player4Score', -1)">Birdie</button><br>
+                                                <button class="btn btn-info mb-2"
+                                                    onclick="updateScore(event, 'player4Score', 0)">Par</button><br>
+                                                <button class="btn btn-warning mb-2"
+                                                    onclick="updateScore(event, 'player4Score', 1)">Bogie</button><br>
+                                                <button class="btn btn-dark mb-2"
+                                                    onclick="updateScore(event, 'player4Score', 2)">Double-Bogey</button>
+                                                <button class="btn btn-danger mb-2"
+                                                    onclick="updateScore(event, 'player4Score', 25)">X</button>
+                                            </td>
+
                                         </tr>
 
                                     </tbody>
@@ -191,22 +203,22 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="text-center">Player 1</td>
+                                        <td class="text-center">{{ request.form['player1'] }}</td>
                                         <td class="text-center" id="player1Total">0</td>
                                         <td class="text-center" id="Player1Total">0</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center">Player 2</td>
+                                        <td class="text-center">{{ request.form['player2'] }}</td>
                                         <td class="text-center" id="player2Total">0</td>
                                         <td class="text-center" id="Player2Total">0</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center">Player 3</td>
+                                        <td class="text-center"> {{ request.form['player3'] }}</td>
                                         <td class="text-center" id="player3Total">0</td>
                                         <td class="text-center" id="Player3Total">0</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center">Player 4</td>
+                                        <td class="text-center">{{ request.form['player4'] }}</td>
                                         <td class="text-center" id="player4Total">0</td>
                                         <td class="text-center" id="Player4Total">0</td>
                                     </tr>
